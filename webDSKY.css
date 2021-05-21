@@ -1,0 +1,407 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/* SPDX-FileCopyrightText: Copyright 2020 Michael Karl Franzl <public.michael@franzl.name> */
+
+:host {
+  width: 698px;
+  height: 792px;
+  display: block;
+  position: relative;
+}
+
+div.interface {
+  background-image: url('LM11-co46-dsky-bg.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  z-index: 5;
+}
+
+div.overlay {
+  background-image: url('LM11-co46-dsky-overlay.png');
+  background-repeat: no-repeat;
+  width: 698px;
+  height: 792px;
+  display: inline-block;
+  position: absolute;
+  z-index: 10;
+}
+
+div.blur {
+  backdrop-filter: blur(1px);
+  z-index: 8;
+}
+
+div.digitContainer {
+  display: inline-block;
+  position: absolute;
+  width: 238px;
+  height: 396px;
+  top: 37px;
+  left: 400px;
+}
+
+div.digitRow {
+  display: inline-block;
+  position: absolute;
+  height: 58px;
+}
+
+div.digitRow.row1 {
+  top: 182px;
+}
+
+div.digitRow.row2 {
+  top: 254px;
+}
+
+div.digitRow.row3 {
+  top: 327px;
+}
+
+div.digitRow.row4 {
+  top: 110px;
+  left: 8px;
+}
+
+div.digitRow.row5 {
+  top: 110px;
+  right: 1px;
+}
+
+div.digitRow.row7 {
+  top: 15px;
+  right: 1px;
+}
+
+div.acty_bg {
+  position: absolute;
+  display: inline-block;
+  width: 86px;
+  height: 80px;
+  background-color: #86ce87;
+  left: 3px;
+  top: 5px;
+  box-shadow: 0px 0px 5px #86ce87;
+}
+
+div.prog_bg {
+  position: absolute;
+  display: inline-block;
+  width: 87px;
+  height: 25px;
+  background-color: #86ce87;
+  right: 1px;
+  top: 5px;
+  box-shadow: 0px 0px 5px #86ce87;
+}
+
+div.verb_bg {
+  position: absolute;
+  display: inline-block;
+  width: 86px;
+  height: 25px;
+  background-color: #86ce87;
+  left: 3px;
+  top: 99px;
+  box-shadow: 0px 0px 5px #86ce87;
+}
+
+div.noun_bg {
+  position: absolute;
+  display: inline-block;
+  width: 87px;
+  height: 25px;
+  background-color: #86ce87;
+  right: 1px;
+  top: 98px;
+  box-shadow: 0px 0px 5px #86ce87;
+}
+
+div.separator {
+  position: absolute;
+  display: inline-block;
+  height: 6px;
+  background-color: #86ce87;
+  left: 30px;
+  right: 12px;
+  box-shadow: 0px 0px 5px #86ce87;
+  border-radius: 1px;
+}
+
+dsky-display-sign {
+  margin-right: -20px;
+}
+
+div#lamps {
+  background-color: #cac4b4;
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  top: 0px;
+  width: 320px;
+  height: 460px;
+}
+
+div.lamp {
+  position: absolute;
+  z-index: 2;
+  width: 116px;
+  height: 50px;
+  opacity: 0;
+  background-color: white;
+  animation: fadeOut ease .2s;
+}
+
+div.lamp.on {
+  animation: fadeIn ease .001s;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from{ opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+div#lamp00 {
+  left: 65px;
+  top: 48px;
+}
+
+div#lamp01 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 48px;
+}
+
+div#lamp10 {
+  left: 65px;
+  top: 102px;
+}
+
+div#lamp11 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 102px;
+}
+
+div#lamp20 {
+  left: 65px;
+  top: 158px;
+}
+
+div#lamp21 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 158px;
+}
+
+div#lamp30 {
+  left: 65px;
+  top: 216px;
+}
+
+div#lamp31 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 216px;
+}
+
+div#lamp40 {
+  left: 65px;
+  top: 274px;
+}
+
+div#lamp41 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 274px;
+}
+
+div#lamp50 {
+  left: 65px;
+  top: 331px;
+}
+
+div#lamp51 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 331px;
+}
+
+div#lamp60 {
+  left: 65px;
+  top: 386px;
+}
+
+div#lamp61 {
+  background-color: #ffee8f;
+  left: 186px;
+  top: 386px;
+}
+
+div.key {
+  position: absolute;
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-image: url('LM11-co46-dsky-bg.png');
+  background-repeat: no-repeat;
+  z-index: 150;
+}
+
+div.key:hover {
+  cursor: pointer;
+}
+
+div.key:active,
+div.key.pressed {
+  /* cheap button push animation */
+  border-left: 2px solid transparent;
+  border-top: 2px solid transparent;
+  opacity: 0.9;
+  filter: brightness(2.5);
+}
+
+div#key_0 {
+  background-position-x: -115px;
+  background-position-y: -682px;
+  left: 115px;
+  top: 682px;
+}
+
+div#key_1 {
+  background-position-x: -212px;
+  background-position-y: -682px;
+  left: 212px;
+  top: 682px;
+}
+
+div#key_2 {
+  background-position-x: -309px;
+  background-position-y: -683px;
+  left: 309px;
+  top: 683px;
+}
+
+div#key_3 {
+  background-position-x: -408px;
+  background-position-y: -683px;
+  left: 408px;
+  top: 683px;
+}
+
+div#key_k {
+  background-position-x: -506px;
+  background-position-y: -683px;
+  left: 506px;
+  top: 683px;
+}
+
+
+div#key_m {
+  background-position-x: -115px;
+  background-position-y: -587px;
+  left: 115px;
+  top: 587px;
+}
+
+div#key_4 {
+  background-position-x: -212px;
+  background-position-y: -587px;
+  left: 212px;
+  top: 587px;
+}
+
+div#key_5 {
+  background-position-x: -309px;
+  background-position-y: -587px;
+  left: 309px;
+  top: 587px;
+}
+
+div#key_6 {
+  background-position-x: -408px;
+  background-position-y: -587px;
+  left: 408px;
+  top: 587px;
+}
+
+div#key_o {
+  background-position-x: -506px;
+  background-position-y: -587px;
+  left: 506px;
+  top: 587px;
+}
+
+
+div#key_p {
+  background-position-x: -115px;
+  background-position-y: -494px;
+  left: 115px;
+  top: 494px;
+}
+
+div#key_7 {
+  background-position-x: -212px;
+  background-position-y: -494px;
+  left: 212px;
+  top: 494px;
+}
+
+div#key_8 {
+  background-position-x: -309px;
+  background-position-y: -494px;
+  left: 309px;
+  top: 494px;
+}
+
+div#key_9 {
+  background-position-x: -408px;
+  background-position-y: -494px;
+  left: 408px;
+  top: 494px;
+}
+
+div#key_c {
+  background-position-x: -506px;
+  background-position-y: -494px;
+  left: 506px;
+  top: 494px;
+}
+
+
+div#key_v {
+  background-position-x: -18px;
+  background-position-y: -540px;
+  left: 18px;
+  top: 540px;
+}
+
+div#key_n {
+  background-position-x: -18px;
+  background-position-y: -634px;
+  left: 18px;
+  top: 634px;
+}
+
+
+div#key_e {
+  background-position-x: -604px;
+  background-position-y: -540px;
+  left: 604px;
+  top: 540px;
+}
+
+div#key_r {
+  background-position-x: -604px;
+  background-position-y: -634px;
+  left: 604px;
+  top: 634px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>webDSKY demo</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  </head>
+
+  <body>
+    <dsky-interface id="dsky" data-input1="000000000000000" data-input2="000000000000000" data-keypress=""></dsky-interface>
+
+    <h2>HTML</h2>
+
+    <pre id="html"></pre>
+
+    <h2>Inputs</h2>
+
+    <p>
+      <label><code>data-input1</code></label>
+      <input id="input1" value="000000000000000"></input>
+      <span>Example: <code>000101010110101</code> or <code>110000100000000</code></span>
+    </p>
+
+    <p>
+      <label><code>data-input2</code></label>
+      <input id="input2" value="000000000000000"></input>
+      <span>Example: <code>000000000000100</code> to light UPLINK ACTY</span>
+    </p>
+
+    <p>
+      <label><code>data-keypress</code></label>
+      <input id="remote_control"></input>
+      <span>0-9, v, n, c, o, k, r, e/Enter, p/+, m/-</span>
+    </p>
+
+    <h2>Outputs</h2>
+
+    <p>
+      <label>PRO key:</label> <code id="proceed">1</code>
+      <span>(inverted)</span>
+    </p>
+
+    <p>
+      <label>Keys:</label> <code id="value">0000</code>
+    </p>
+  </body>
+</html>

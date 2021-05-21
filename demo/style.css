@@ -1,0 +1,15 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/* SPDX-FileCopyrightText: Copyright 2020 Michael Karl Franzl <public.michael@franzl.name> */
+
+body {
+  width: 700px;
+}
+
+label {
+  display: inline-block;
+  width: 110px;
+}
+
+pre {
+  white-space: normal;
+}

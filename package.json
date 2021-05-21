@@ -1,0 +1,42 @@
+{
+  "name": "webdsky",
+  "version": "1.0.1",
+  "description": "Emulation of the DSKY user interface of the Apollo Guidance Computer for the Web platform",
+  "main": "webDSKY.js",
+  "keywords": [
+    "apollo",
+    "moon",
+    "dksy",
+    "agc",
+    "historical",
+    "archeology",
+    "webcomponent"
+  ],
+  "directories": {
+    "lib": "lib",
+    "digits": "digits"
+  },
+  "files": [
+    "digits/*",
+    "lib/*",
+    "webDSKY.js",
+    "webDSKY.css",
+    "LM11-co46-dsky-bg.png",
+    "LM11-co46-dsky-overlay.png"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelfranzl/webDSKY"
+  },
+  "author": "Michael Karl Franzl",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.21.1"
+  }
+}
