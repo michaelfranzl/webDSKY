@@ -1,15 +1,13 @@
 {
   "name": "webdsky",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Emulation of the DSKY user interface of the Apollo Guidance Computer for the Web platform",
   "main": "webDSKY.js",
   "keywords": [
     "apollo",
     "moon",
-    "dksy",
+    "dsky",
     "agc",
-    "historical",
-    "archeology",
     "webcomponent"
   ],
   "directories": {
