@@ -6,8 +6,7 @@ import './digits/sign.js';
 import createChild from './lib/create_child.js';
 
 /*
- * Element designations follow
- *
+ * Element naming follows the prints at
  * https://archive.org/stream/acelectroniclmma00acel_0#page/n344/mode/1up
  */
 class DskyInterface extends HTMLElement {
