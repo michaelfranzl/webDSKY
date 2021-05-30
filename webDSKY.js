@@ -82,12 +82,17 @@ class DskyInterface extends HTMLElement {
         id: `key_${key}`,
         classes: ['key'],
       });
+
       element.setAttribute('char', key);
+
       element.addEventListener('mousedown', (event) => {
         const char = event.target.getAttribute('char');
-        if (char === 'o') this.dispatchEvent(new CustomEvent('proceed', { detail: 0 }));
-        else this.dispatchEvent(new CustomEvent('keypress', { detail: DskyInterface.keyToValue(char) }));
+        if (char === 'o')
+          this.dispatchEvent(new CustomEvent('proceed', { detail: 0 }));
+        else
+          this.dispatchEvent(new CustomEvent('keypress', { detail: DskyInterface.keyToValue(char) }));
       });
+
       element.addEventListener('mouseup', (event) => {
         const char = event.target.getAttribute('char');
         if (char === 'o') this.dispatchEvent(new CustomEvent('proceed', { detail: 1 }));
