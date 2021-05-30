@@ -95,7 +95,21 @@ class DskyInterface extends HTMLElement {
 
       element.addEventListener('mouseup', (event) => {
         const char = event.target.getAttribute('char');
-        if (char === 'o') this.dispatchEvent(new CustomEvent('proceed', { detail: 1 }));
+
+        if (char === 'o') {
+          if (this.mouseupTimeoutProceedKey)
+            clearTimeout(this.mouseupTimeoutProceedKey);
+          this.mouseupTimeoutProceedKey = setTimeout(() => {
+            this.dispatchEvent(new CustomEvent('proceed', { detail: 1 }));
+          }, 100);
+
+        } else {
+          if (this.mouseupTimeoutNormalKey)
+            clearTimeout(this.mouseupTimeoutNormalKey);
+          this.mouseupTimeoutNormalKey = setTimeout(() => {
+            this.dispatchEvent(new CustomEvent('keypress', { detail: 0 }));
+          }, 100);
+        }
       });
     }
   }
