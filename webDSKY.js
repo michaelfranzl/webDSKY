@@ -101,14 +101,14 @@ class DskyInterface extends HTMLElement {
             clearTimeout(this.mouseupTimeoutProceedKey);
           this.mouseupTimeoutProceedKey = setTimeout(() => {
             this.dispatchEvent(new CustomEvent('proceed', { detail: 1 }));
-          }, 100);
+          }, 250); // T4RUPT in Apollo programs checks the PRO key every 120 ms
 
         } else {
           if (this.mouseupTimeoutNormalKey)
             clearTimeout(this.mouseupTimeoutNormalKey);
           this.mouseupTimeoutNormalKey = setTimeout(() => {
             this.dispatchEvent(new CustomEvent('keypress', { detail: 0 }));
-          }, 100);
+          }, 250);
         }
       });
     }
