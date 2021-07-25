@@ -5,19 +5,12 @@ export default class Base extends HTMLElement {
   constructor() {
     super();
 
-    this.setPath();
     this.root = this.attachShadow({ mode: 'closed' });
 
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', `${this.path}/style.css`);
+    linkElem.setAttribute('href', new URL('./style.css', import.meta.url).href);
     this.root.appendChild(linkElem);
-  }
-
-  setPath() {
-    const parts = new URL(import.meta.url).pathname.split('/');
-    parts.pop();
-    this.path = parts.join('/');
   }
 
   setSegments(labels) {

@@ -13,7 +13,7 @@ class Sign extends Base {
       c: 'segment_c',
     };
 
-    this.svgFilepath = `${this.path}/sign.svg`;
+    this.svgFilepath = new URL('./sign.svg', import.meta.url);
     this.initialize();
   }
 }

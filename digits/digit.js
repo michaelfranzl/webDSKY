@@ -17,7 +17,7 @@ class Digit extends Base {
       n: 'segment_n',
     };
 
-    this.svgFilepath = `${this.path}/digit.svg`;
+    this.svgFilepath = new URL('./digit.svg', import.meta.url);
     this.initialize();
   }
 }

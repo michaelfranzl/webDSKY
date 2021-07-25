@@ -13,8 +13,6 @@ class DskyInterface extends HTMLElement {
   constructor() {
     super();
 
-    this.setPath();
-
     this.state = {
       sign1m: 0,
       sign1p: 0,
@@ -27,7 +25,7 @@ class DskyInterface extends HTMLElement {
     const root = this.attachShadow({ mode: 'closed' });
 
     createChild(root, 'link', {
-      attributes: { rel: 'stylesheet', href: `${this.path}/webDSKY.css` },
+      attributes: { rel: 'stylesheet', href: new URL('./webDSKY.css', import.meta.url).href },
     });
     const iface = createChild(root, 'div', { classes: ['interface'] });
     createChild(iface, 'div', { classes: ['overlay'] });
@@ -112,12 +110,6 @@ class DskyInterface extends HTMLElement {
         }
       });
     }
-  }
-
-  setPath() {
-    const parts = new URL(import.meta.url).pathname.split('/');
-    parts.pop();
-    this.path = parts.join('/');
   }
 
   emit(port, value) {
