@@ -22,12 +22,23 @@ class DskyInterface extends HTMLElement {
       sign3p: 0,
     };
 
-    const root = this.attachShadow({ mode: 'closed' });
+    this.rootEl = this.attachShadow({ mode: 'closed' });
 
-    createChild(root, 'link', {
-      attributes: { rel: 'stylesheet', href: new URL('./webDSKY.css', import.meta.url).href },
-    });
-    const iface = createChild(root, 'div', { classes: ['interface'] });
+    const styleHref = new URL('./webDSKY.css', import.meta.url).href;
+    createChild(this.rootEl, 'link', { attributes: { rel: 'stylesheet', href: styleHref } });
+
+    // Pre-fetch assets to reduce flashing of unstyled content.
+    // Pre-fetching using the link HTML tag doesn't seem to work from web components,
+    // so let's just use fetch().
+    fetch(styleHref);
+    fetch(new URL('./LM11-co46-dsky-bg.png', import.meta.url).href);
+    fetch(new URL('./LM11-co46-dsky-overlay.png', import.meta.url).href);
+    fetch(new URL('./digits/digit.svg', import.meta.url).href);
+    fetch(new URL('./digits/sign.svg', import.meta.url).href);
+  }
+
+  connectedCallback() {
+    const iface = createChild(this.rootEl, 'div', { classes: ['interface'] });
     createChild(iface, 'div', { classes: ['overlay'] });
     createChild(iface, 'div', { classes: ['digitContainer', 'blur'] });
     const digitContainer = createChild(iface, 'div', { classes: ['digitContainer'] });
@@ -63,7 +74,7 @@ class DskyInterface extends HTMLElement {
     this.elements.ds1.comp_acty.style.display = 'none';
 
     // create 7 rows and 2 columns of alarm indicator lights
-    const lampContainer = createChild(root, 'div', { id: 'lamps' });
+    const lampContainer = createChild(this.rootEl, 'div', { id: 'lamps' });
     for (let row = 0; row < 7; row++) {
       for (let col = 0; col < 2; col++) {
         const id = `lamp${row}${col}`;
@@ -76,7 +87,7 @@ class DskyInterface extends HTMLElement {
     // v = verb, n = noun
     const keys = '0123456789pmvncpkero';
     for (const key of keys) {
-      const element = this.elements.keys[key] = createChild(root, 'div', {
+      const element = this.elements.keys[key] = createChild(this.rootEl, 'div', {
         id: `key_${key}`,
         classes: ['key'],
       });
